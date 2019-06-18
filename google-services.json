@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "414195507501",
+    "firebase_url": "https://android-inventions.firebaseio.com",
+    "project_id": "android-inventions",
+    "storage_bucket": "android-inventions.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414195507501:android:6e77a3495cb8e2d9",
+        "android_client_info": {
+          "package_name": "com.example.android_inventions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414195507501-s5ve4u7gh95oo20su3cgb12e535et5ef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNGPgIdvHhlEnrdJo4bU5jCfcsgkXi4aA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414195507501-s5ve4u7gh95oo20su3cgb12e535et5ef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
