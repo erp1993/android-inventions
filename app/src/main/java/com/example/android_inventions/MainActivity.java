@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.blogButton).setOnClickListener(this);
+        findViewById(R.id.signOffButton).setOnClickListener(this);
 
     }
 
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int i = view.getId();
         if (i == R.id.blogButton) {
             startActivity(new Intent(this, BloggingActivity.class));
+        } else if (i == R.id.signOffButton) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, LoginActivity.class));
         }
     }
 }

@@ -36,13 +36,13 @@
                     android:text="Blogging" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/signOffButton"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:text="Salir" />
             </LinearLayout>
         </TableRow>
 

@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity implements
         PasswordField = findViewById(R.id.passField);
 
         findViewById(R.id.loginButton).setOnClickListener(this);
+        findViewById(R.id.registerButton).setOnClickListener(this);
+
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -75,6 +77,8 @@ public class LoginActivity extends AppCompatActivity implements
         int i = v.getId();
         if (i == R.id.loginButton) {
             signIn(EmailField.getText().toString(), PasswordField.getText().toString());
+        } if (i == R.id.registerButton) {
+            startActivity(new Intent(this, RegisterActivity.class));
         }
     }
 }
