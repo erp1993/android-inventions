@@ -3,6 +3,9 @@ package com.example.android_inventions;
 import android.os.Bundle;
 
 import com.example.android_inventions.Transfers.Usuario;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
@@ -10,7 +13,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -51,20 +58,35 @@ public class BloggingActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-            DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
+        FirebaseFirestore myDb = FirebaseFirestore.getInstance();
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuario u = dataSnapshot.getValue(Usuario.class);
-                textName.setText(u.nombre);
-            }
+        CollectionReference usuarios = myDb.collection("usuarios");
 
-            @Override
-            public void onCancelled(DatabaseError error) {
+        usuarios.document("nh4cvg498HeSpmWsfvAVzUMu8im1").get()
 
-            }
-        });
+                .addOnCompleteListener(new OnCompleteListener< DocumentSnapshot >() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot doc = task.getResult();
+                            textName.setText(doc.get("Nombre").toString());
+                        }
+
+                    }
+                })
+                
+
+                .addOnFailureListener(new OnFailureListener() {
+
+                    @Override
+
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+
+                });
 
 
         for (int i = 0; i < 20; i++) {
